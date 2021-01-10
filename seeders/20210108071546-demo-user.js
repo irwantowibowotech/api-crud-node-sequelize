@@ -1,12 +1,11 @@
 "use strict";
 
 const bcrypt = require("bcrypt");
-require("dotenv").config();
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
-      "users",
+      "Users",
       [
         {
           name: "Irwanto",
@@ -32,6 +31,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete("users", null, {});
+    await queryInterface.bulkDelete("Users", null, {});
   },
 };
