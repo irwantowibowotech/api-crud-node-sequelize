@@ -167,7 +167,7 @@ exports.updateProduct = async (req, res) => {
     });
 
     if (selectDataProduct) {
-      const updateProduct = Product.update(
+      const updateProduct = await Product.update(
         {
           name,
           price,
