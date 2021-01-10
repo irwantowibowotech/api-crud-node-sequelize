@@ -166,7 +166,7 @@ exports.checkAuth = async (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
   try {
-    const resUsers = User.findAll();
+    const resUsers = await User.findAll();
 
     res.send({
       message: "Data berhasil diload",
