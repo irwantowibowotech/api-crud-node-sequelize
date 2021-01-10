@@ -163,3 +163,24 @@ exports.checkAuth = async (req, res) => {
     });
   }
 };
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const resUsers = User.findAll();
+
+    res.send({
+      message: "Data berhasil diload",
+      data: {
+        user: resUsers,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+
+    res.status(500).send({
+      error: {
+        message: "Server error",
+      },
+    });
+  }
+};

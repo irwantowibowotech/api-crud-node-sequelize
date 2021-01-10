@@ -6,7 +6,11 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../controller/productController");
-const { register, login } = require("../controller/userController");
+const {
+  register,
+  login,
+  getAllUsers,
+} = require("../controller/userController");
 const { auth, adminAuth } = require("../middlewares/auth");
 const { uploadImage } = require("../middlewares/upload");
 const { runValidation } = require("../validators");
@@ -16,6 +20,8 @@ const router = express.Router();
 
 router.post("/register", registerValidator, runValidation, register);
 router.post("/login", loginValidator, runValidation, login);
+
+router.get("/users", getAllUsers);
 
 router.get("/products", getAllProducts);
 router.get("/product/:id", getDetailProduct);
